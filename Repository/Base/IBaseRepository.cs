@@ -10,8 +10,9 @@ namespace Payaka.Infrastructure.Repository.Base
     /// <typeparam name="T">Type de l'entité, doit hériter de <see cref="BaseEntity"/>.</typeparam>
     public interface IBaseRepository<T> where T : BaseEntity
     {
-        Task<T> GetById(Guid id);
+        Task<T?> GetById(Guid id);
         Task<List<T>> GetAllAsync();
         Task<List<T>> GetAllAsync(Expression<Func<T, bool>> where);
+        Task<T> DeleteById(Guid id);
     }
 }
